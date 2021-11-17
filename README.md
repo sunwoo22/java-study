@@ -6,7 +6,7 @@
 - [자바 프로그래밍](#자바-프로그래밍)
 - [변수와 자료형](#변수와-자료형)
 - [연산자](#연산자)
-- [](#)
+- [조건문과 반복문](#조건문과-반복문)
 - [](#)
 - [](#)
 <br><br>
@@ -44,6 +44,7 @@
 - 사용하는 언어: Java, C++, C#, Python, JavaScript, Ruby 등 다수 
 - 장점: 재사용성, 유지보수, 코드 관리, 신뢰성 높은 프로그램
 </details>
+<br>
 
 ## 변수와 자료형
 
@@ -200,6 +201,7 @@
     
 ![3-7](https://user-images.githubusercontent.com/84164109/138914404-9e7c8f1d-b75e-4c85-98b9-88b85e5d58d4.png)
 </details>
+<br>
 
 ## 연산자
 
@@ -307,3 +309,193 @@
 
 ![3-15](https://user-images.githubusercontent.com/84164109/138913762-b9858343-b334-4b3b-ad39-2a773d7a9317.png)
 </details>
+<br>
+
+## 조건문과 반복문
+
+<details>
+<summary><b>조건문이란?</b></summary>
+주어진 조건에 따라 다른 실행이 이루어지도록 구현
+</details>
+
+<details>
+<summary><b>if 문</b></summary>
+
+``` java
+if (조건식) {
+    수행문;
+}
+```
+</details>
+
+<details>
+<summary><b>if-else 문</b></summary>
+
+``` java
+if (조건식) {   
+    수행문1;   
+}   
+else {   
+    수행문2;   
+}   
+```
+</details>
+
+<details>
+<summary><b>if-else if-else 문</b></summary>
+
+``` java
+if (조건식1) {   
+    수행문1;   
+}   
+else if (조건식2) {   
+    수행문2;   
+}   
+else if (조건식3) {   
+    수행문3;   
+}   
+else {   
+    수행문4;   
+}   
+```
+</details>
+
+<details>
+<summary><b>if 문과 else if 문의 차이점</b></summary>
+
+- if-else if를 사용하는 경우 하나의 조건이 만족되면 나머지 else if 부분은 수행되지 않음
+- if-if로 사용하게 되면 각각 다른 조건문으로 해석되어 각각 수행하게 됨
+</details>
+
+<details>
+<summary><b>switch-case 문</b></summary>
+
+- if-else if-else 문을 사용할 때 복잡하고 번거로운 부분을 가독성 좋게 구현
+- 비교 조건이 특정 값이나 문자열인 경우 사용
+- break 문을 사용하여 각 조건이 만족되면 switch 블럭을 빠져나오도록 함
+- 자바 14부터 좀 더 간결해진 표현식이 지원됨 (break 사용하지 않음)
+``` java
+switch (변수) {   
+    case 조건1:   
+        수행문;   
+        break;   
+    case 조건2, case 조건3:   
+        수행문;   
+        break;   
+    default:   
+        수행문;   
+}   
+```
+</details>
+
+<details>
+<summary><b>while 문</b></summary>
+
+- 수행문을 수행하기 전 조건을 체크하고 그 조건의 결과가 true인 동안 반복 수행
+- 조건이 참(true)인 동안 반복수행하기
+    - 주어진 조건에 맞는 동안(true) 지정된 수행문을 반복적으로 수행하는 제어문
+    - 조건이 맞지 않으면 반복하던 수행을 멈추게 됨
+    - 조건을 주로 반복 횟수나 값의 비교 결과에 따라 true, false 판단됨
+``` java
+while (조건식) {
+    수행문1;
+}
+수행문2;
+```
+![1-1](https://user-images.githubusercontent.com/84164109/142200455-81a04d03-93c1-44f2-8915-b2855c78bb03.png)
+
+- 무한 반복
+``` java
+while (true) {
+    수행문;
+}
+```
+</details>
+
+<details>
+<summary><b>do-while 문</b></summary>
+
+- 조건과 상관없이 한번은 수행문을 수행
+    - while 문은 조건을 먼저 체크하고 반복 수행이 된다면, do-while 문은 조건과 상관없이 수행을 한번 하고나서 조건을 체크
+``` java
+do {
+    수행문1
+} while (조건식);
+수행문2;
+```
+![1-2](https://user-images.githubusercontent.com/84164109/142200488-6dd26cfe-0b50-413b-8a99-4ab5b827474e.png)
+
+</details>
+
+<details>
+<summary><b>for 문</b></summary>
+
+``` java
+for (초기식; 조건식; 증감식) {
+    수행문;
+}
+```
+![1-3](https://user-images.githubusercontent.com/84164109/142200521-2a85c0d2-e1fe-4b36-814d-c67e78eed073.png)
+
+</details>
+
+<details>
+<summary><b>for 문의 문장 생략</b></summary>
+
+- 초기식 생략: 이미 이전에 값이 초기화되어 for 내부에서 값을 지정할 필요가 없는 경우   
+``` java
+int i = 0;
+for (; i<5; i++) {
+    ...
+}
+```
+- 조건식 생략: 반복 수행에 대한 조건이 수행문 내부에 있는 경우   
+``` java
+for (i=0; ; i++) {
+    sum += i;
+    if (sum > 200) break;
+}
+```
+- 증감식 생략: 증감식에 대한 연산이 복잡하거나 다른 변수의 연산 결과값에 의해 결정되는 경우   
+``` java
+for (i=0; i<5; ) {
+    ...
+    i = (++i)%10;
+}
+```
+- 무한 반복
+``` java
+for (; ; ) {
+    ...
+}
+```
+</details>
+
+<details>
+<summary><b>각 반복문을 사용하는 경우</b></summary>
+
+||while|do-while|for|
+|-|-|-|-|
+|수행|조건이 참인 동안 반복 수행<br>조건이 맞지 않으면 수행되는 부분이 없음|조건이 참인 동안 반복 수행<br>수행문을 먼저 수행하고 조건 체크|초기화, 조건 체크, 증감 순으로 진행|
+|쓰임|조건식의 결과가 변수나 true, false 값인 경우 주로 사용|조건식의 결과가 변수나 true, false 값인 경우 주로 사용|특정 수의 범위, 횟수와 관련하여 반복되는 경우 주로 사용<br>배열과 함께 많이 사용|
+</details>
+
+<details>
+<summary><b>중첩 반복문</b></summary>
+
+- 반복문 내부에 또다른 반복문이 있음
+- 여러 겹으로 반복문을 겹쳐서 구현 가능 (단, 수행시간에 문제가 발생할 수 있음)
+- 외부 반복문과 내부 반복문 간의 변수 값 변화에 유의하며 구현해야 함
+</details>
+
+<details>
+<summary><b>break 문과 continue 문</b></summary>
+
+- break
+    - 감싸고 있는 제어문의 블록을 빠져나오는 기능 (switch 문에서도 사용)
+    - 반복문에서는 주로 조건문(if)와 같이 사용하며, 조건에 해당되는 경우 반복 수행을 멈추고 반복문 외부로 수행이 이동
+    - 여러 반복문이 중첩되어 있는 경우, break 문이 포함되어 있는 반복문만 빠져나옴
+- continue
+    - 반복문 내부에서 조건문(if)와 같이 사용하며, 조건이 맞는 경우(true) 이후 반복문 블럭 내부의 다른 수행문들을 수행하지 않음
+</details>
+<br>
